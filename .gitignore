@@ -1,4 +1,3 @@
-
 .DS_Store
 cases_by_age/.DS_Store
 cases_by_date/.DS_Store
@@ -8,3 +7,5 @@ cases_by_zipcode/.DS_Store
 deaths_by_date/.DS_Store
 deaths_by_sex_age/.DS_Store
 deaths_by_zipcode/.DS_Store
+.Rproj.user
+.Rhistory
