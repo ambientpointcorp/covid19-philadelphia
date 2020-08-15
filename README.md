@@ -5,9 +5,33 @@ De-identified, aggregate datasets showing COVID-19 cases,
 hospitalizations and deaths by date, zip, or age/sex/race as made
 available by the City of Philadelphia through its Open Data Program.
 
-The data in this repository (collected since 6/4/20) is a history of
-daily snapshots made available here:
+The data in this repository is a history of daily snapshots made
+available here:
 <https://www.opendataphilly.org/showcase/philadelphia-covid-19-information>
+
+The following datasets have been collected since 6/4/2020:
+
+  - COVID Cases by Age
+  - COVID Cases by Date
+  - COVID Cases by Sex
+  - COVID Cases by Zipcode
+  - COVID Deaths by Age
+  - COVID Deaths by Date
+  - COVID Deaths by Sex
+
+These have been collected since 8/14/2020:
+
+  - COVID Cases by Race
+  - COVID Deaths by Race
+  - COVID Hospitalizations by Age
+  - COVID Hospitalizations by Date
+  - COVID Hospitalizations by Race
+  - COVID Hospitalizations by Sex
+  - COVID Hospitalizations by Zipcode
+
+We are working to backfill all the datasets with the entire history
+prior to the dates above and make them available here for use by the
+open data community.
 
 For terms of use:
 <https://www.opendataphilly.org/organization/about/city-of-philadelphia>
@@ -36,7 +60,7 @@ cases_by_date <- build_historical_dataset("cases_by_date")
 cases_by_date
 ```
 
-    ## # A tibble: 7,438 x 4
+    ## # A tibble: 7,597 x 4
     ##    result_date etl_timestamp       positive negative
     ##    <date>      <dttm>                 <dbl>    <dbl>
     ##  1 2020-03-27  2020-06-04 17:20:02      222      769
@@ -49,7 +73,7 @@ cases_by_date
     ##  8 2020-05-01  2020-06-04 17:20:02      414     1104
     ##  9 2020-05-20  2020-06-04 17:20:02      193     1697
     ## 10 2020-04-24  2020-06-04 17:20:02      490     1147
-    ## # … with 7,428 more rows
+    ## # … with 7,587 more rows
 
   - Explore the epidemic’s incidence and effective reproductive number:
 

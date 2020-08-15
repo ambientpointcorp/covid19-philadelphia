@@ -4,7 +4,29 @@ output: github_document
 ---
 De-identified, aggregate datasets showing COVID-19 cases, hospitalizations and deaths by date, zip, or age/sex/race as made available by the City of Philadelphia through its Open Data Program.
 
-The data in this repository (collected since 6/4/20) is a history of daily snapshots made available here: https://www.opendataphilly.org/showcase/philadelphia-covid-19-information
+The data in this repository is a history of daily snapshots made available here: https://www.opendataphilly.org/showcase/philadelphia-covid-19-information
+
+The following datasets have been collected since 6/4/2020:
+
+* COVID Cases by Age
+* COVID Cases by Date
+* COVID Cases by Sex
+* COVID Cases by Zipcode
+* COVID Deaths by Age
+* COVID Deaths by Date
+* COVID Deaths by Sex
+
+These have been collected since 8/14/2020:
+
+* COVID Cases by Race
+* COVID Deaths by Race
+* COVID Hospitalizations by Age
+* COVID Hospitalizations by Date
+* COVID Hospitalizations by Race
+* COVID Hospitalizations by Sex
+* COVID Hospitalizations by Zipcode
+
+We are working to backfill all the datasets with the entire history prior to the dates above and make them available here for use by the open data community.
 
 For terms of use: https://www.opendataphilly.org/organization/about/city-of-philadelphia
 
