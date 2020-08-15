@@ -1,9 +1,9 @@
 covid19-philadelphia
 ================
 
-De-identified, aggregate datasets showing COVID-19 cases and deaths by
-date, zip, or age/sex as made available by the City of Philadelphia
-through its Open Data Program.
+De-identified, aggregate datasets showing COVID-19 cases,
+hospitalizations and deaths by date, zip, or age/sex/race as made
+available by the City of Philadelphia through its Open Data Program.
 
 The data in this repository (collected since 6/4/20) is a history of
 daily snapshots made available here:
@@ -36,7 +36,7 @@ cases_by_date <- build_historical_dataset("cases_by_date")
 cases_by_date
 ```
 
-    ## # A tibble: 7,123 x 4
+    ## # A tibble: 7,438 x 4
     ##    result_date etl_timestamp       positive negative
     ##    <date>      <dttm>                 <dbl>    <dbl>
     ##  1 2020-03-27  2020-06-04 17:20:02      222      769
@@ -49,7 +49,7 @@ cases_by_date
     ##  8 2020-05-01  2020-06-04 17:20:02      414     1104
     ##  9 2020-05-20  2020-06-04 17:20:02      193     1697
     ## 10 2020-04-24  2020-06-04 17:20:02      490     1147
-    ## # … with 7,113 more rows
+    ## # … with 7,428 more rows
 
   - Explore the epidemic’s incidence and effective reproductive number:
 
