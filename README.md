@@ -60,7 +60,7 @@ cases_by_date <- build_historical_dataset("cases_by_date")
 cases_by_date
 ```
 
-    ## # A tibble: 8,249 x 4
+    ## # A tibble: 8,415 x 4
     ##    result_date etl_timestamp       positive negative
     ##    <date>      <dttm>                 <dbl>    <dbl>
     ##  1 2020-03-27  2020-06-04 17:20:02      222      769
@@ -73,7 +73,7 @@ cases_by_date
     ##  8 2020-05-01  2020-06-04 17:20:02      414     1104
     ##  9 2020-05-20  2020-06-04 17:20:02      193     1697
     ## 10 2020-04-24  2020-06-04 17:20:02      490     1147
-    ## # … with 8,239 more rows
+    ## # … with 8,405 more rows
 
   - Explore the epidemic’s incidence and effective reproductive number:
 
