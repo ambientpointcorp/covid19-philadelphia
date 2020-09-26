@@ -2,6 +2,8 @@
 title: "covid19-philadelphia"
 output: github_document
 ---
+
+### About this repo
 De-identified, aggregate datasets showing COVID-19 cases, hospitalizations and deaths by date, zip, or age/sex/race as made available by the City of Philadelphia through its Open Data Program.
 
 The data in this repository is a history of daily snapshots made available here: https://www.opendataphilly.org/showcase/philadelphia-covid-19-information
@@ -31,11 +33,13 @@ We are working to backfill all the datasets with the entire history prior to the
 For terms of use: https://www.opendataphilly.org/organization/about/city-of-philadelphia
 
 ---------
-If you use R/RStudio, to get started reading and analyzing the data:
+
+### How to use
+To get started reading and analyzing the data:
 
 * Clone this repo
-* Open a new project with RStudio based on an existing folder, pointing to the local copy of the repo
-* Read all the files within a folder as a historical dataset:
+* If you use R/RStudio, open a new project based on an existing folder, pointing to the local copy of the repo
+* Read all the files within a folder as a historical dataset, for example:
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 
@@ -45,11 +49,20 @@ build_historical_dataset <- function(data_folder) {
     map_dfr(read_csv) %>%
     distinct() # duplicates occur when there is an extract but no data update
 }
+
+# Cases by test result and reporting dates
 cases_by_date <- build_historical_dataset("cases_by_date")
 cases_by_date
+
+# Cases by zip code and reporting date
+cases_by_zipcode <- build_historical_dataset("cases_by_zipcode")
+cases_by_zipcode
 ```
 
-* Explore the epidemic's incidence and effective reproductive number:
+
+---------
+
+### Analysis: COVID-19's incidence and effective reproductive number in Philly
 ```{r message=FALSE, warning=FALSE}
 library(lubridate)
 library(EpiEstim)
@@ -65,8 +78,7 @@ incidence_data <- list.files(path = "cases_by_date", full.names = TRUE) %>%
   mutate(dates = date(result_date)) %>%
   arrange(dates) %>%
   mutate(positivity_rate = positive / (positive + negative)) %>%
-  mutate(positivity_rate_last = lag(positivity_rate, default = first(positivity_rate))) %>%
-  select(dates, positive, negative, positivity_rate, positivity_rate_last) %>%
+  select(dates, positive, negative, positivity_rate) %>%
   filter(dates <= last(dates) - 3) # remove last 3 days considering lag in test results
 
 # Plot incidence and effective reproductive number over time
