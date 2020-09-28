@@ -67,7 +67,7 @@ cases_by_date <- build_historical_dataset("cases_by_date")
 cases_by_date
 ```
 
-    ## # A tibble: 14,088 x 4
+    ## # A tibble: 14,291 x 4
     ##    result_date etl_timestamp       positive negative
     ##    <date>      <dttm>                 <dbl>    <dbl>
     ##  1 2020-03-27  2020-06-04 17:20:02      222      769
@@ -80,7 +80,7 @@ cases_by_date
     ##  8 2020-05-01  2020-06-04 17:20:02      414     1104
     ##  9 2020-05-20  2020-06-04 17:20:02      193     1697
     ## 10 2020-04-24  2020-06-04 17:20:02      490     1147
-    ## # … with 14,078 more rows
+    ## # … with 14,281 more rows
 
 ``` r
 # Cases by zip code and reporting date
@@ -88,7 +88,7 @@ cases_by_zipcode <- build_historical_dataset("cases_by_zipcode")
 cases_by_zipcode
 ```
 
-    ## # A tibble: 5,477 x 4
+    ## # A tibble: 5,534 x 4
     ##    zip_code etl_timestamp         NEG   POS
     ##       <dbl> <dttm>              <dbl> <dbl>
     ##  1    19122 2020-06-01 17:20:02  1018   245
@@ -101,7 +101,7 @@ cases_by_zipcode
     ##  8    19125 2020-06-01 17:20:02  1117   204
     ##  9    19106 2020-06-01 17:20:02   589    55
     ## 10    19132 2020-06-01 17:20:02  1720   573
-    ## # … with 5,467 more rows
+    ## # … with 5,524 more rows
 
 -----
 
