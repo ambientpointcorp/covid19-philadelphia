@@ -31,9 +31,16 @@ These have been collected since 8/14/2020:
   - COVID Hospitalizations by Sex
   - COVID Hospitalizations by Zipcode
 
+Starting on 9/29/2020, COVID Cases by Date are reported by test specimen
+collection date; prior to this date, these were reported by test result
+date.
+
 We are working to backfill all the datasets with the entire history
 prior to the dates above and make them available here for use by the
 open data community.
+
+Questions about these datasets? Visit the OpenDataPhilly Discussion
+Group: <https://groups.google.com/forum/#!forum/opendataphilly>
 
 For terms of use:
 <https://www.opendataphilly.org/organization/about/city-of-philadelphia>
@@ -67,20 +74,20 @@ cases_by_date <- build_historical_dataset("cases_by_date")
 cases_by_date
 ```
 
-    ## # A tibble: 14,291 x 4
-    ##    result_date etl_timestamp       positive negative
-    ##    <date>      <dttm>                 <dbl>    <dbl>
-    ##  1 2020-03-27  2020-06-04 17:20:02      222      769
-    ##  2 2020-05-05  2020-06-04 17:20:02      362     1252
-    ##  3 2020-05-30  2020-06-04 17:20:02      126     1525
-    ##  4 2020-03-24  2020-06-04 17:20:02      115      477
-    ##  5 2020-04-26  2020-06-04 17:20:02      204      620
-    ##  6 2020-05-23  2020-06-04 17:20:02      192     1535
-    ##  7 2020-04-16  2020-06-04 17:20:02      524      772
-    ##  8 2020-05-01  2020-06-04 17:20:02      414     1104
-    ##  9 2020-05-20  2020-06-04 17:20:02      193     1697
-    ## 10 2020-04-24  2020-06-04 17:20:02      490     1147
-    ## # … with 14,281 more rows
+    ## # A tibble: 14,497 x 5
+    ##    result_date etl_timestamp       positive negative collection_date
+    ##    <date>      <dttm>                 <dbl>    <dbl> <date>         
+    ##  1 2020-03-27  2020-06-04 17:20:02      222      769 NA             
+    ##  2 2020-05-05  2020-06-04 17:20:02      362     1252 NA             
+    ##  3 2020-05-30  2020-06-04 17:20:02      126     1525 NA             
+    ##  4 2020-03-24  2020-06-04 17:20:02      115      477 NA             
+    ##  5 2020-04-26  2020-06-04 17:20:02      204      620 NA             
+    ##  6 2020-05-23  2020-06-04 17:20:02      192     1535 NA             
+    ##  7 2020-04-16  2020-06-04 17:20:02      524      772 NA             
+    ##  8 2020-05-01  2020-06-04 17:20:02      414     1104 NA             
+    ##  9 2020-05-20  2020-06-04 17:20:02      193     1697 NA             
+    ## 10 2020-04-24  2020-06-04 17:20:02      490     1147 NA             
+    ## # … with 14,487 more rows
 
 ``` r
 # Cases by zip code and reporting date
@@ -88,7 +95,7 @@ cases_by_zipcode <- build_historical_dataset("cases_by_zipcode")
 cases_by_zipcode
 ```
 
-    ## # A tibble: 5,534 x 4
+    ## # A tibble: 5,591 x 4
     ##    zip_code etl_timestamp         NEG   POS
     ##       <dbl> <dttm>              <dbl> <dbl>
     ##  1    19122 2020-06-01 17:20:02  1018   245
@@ -101,7 +108,7 @@ cases_by_zipcode
     ##  8    19125 2020-06-01 17:20:02  1117   204
     ##  9    19106 2020-06-01 17:20:02   589    55
     ## 10    19132 2020-06-01 17:20:02  1720   573
-    ## # … with 5,524 more rows
+    ## # … with 5,581 more rows
 
 -----
 
@@ -114,12 +121,12 @@ library(EpiEstim)
 # Daily case count by test result date
 incidence_data <- list.files(path = "cases_by_date", full.names = TRUE) %>% 
   last %>% 
-  read_csv(col_types = cols(result_date = col_character(),
+  read_csv(col_types = cols(collection_date = col_character(),
                             etl_timestamp = col_skip(),
                             negative = col_integer(),
                             positive = col_integer())) %>% 
-  filter(!is.na(positive) & (date(result_date) >= date("2020-03-16"))) %>%
-  mutate(dates = date(result_date)) %>%
+  filter(!is.na(positive) & (date(collection_date) >= date("2020-03-16"))) %>%
+  mutate(dates = date(collection_date)) %>%
   arrange(dates) %>%
   mutate(positivity_rate = positive / (positive + negative)) %>%
   select(dates, positive, negative, positivity_rate) %>%

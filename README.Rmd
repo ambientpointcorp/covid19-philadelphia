@@ -28,7 +28,11 @@ These have been collected since 8/14/2020:
 * COVID Hospitalizations by Sex
 * COVID Hospitalizations by Zipcode
 
+Starting on 9/29/2020, COVID Cases by Date are reported by test specimen collection date; prior to this date, these were reported by test result date.
+
 We are working to backfill all the datasets with the entire history prior to the dates above and make them available here for use by the open data community.
+
+Questions about these datasets? Visit the OpenDataPhilly Discussion Group: https://groups.google.com/forum/#!forum/opendataphilly
 
 For terms of use: https://www.opendataphilly.org/organization/about/city-of-philadelphia
 
@@ -70,12 +74,12 @@ library(EpiEstim)
 # Daily case count by test result date
 incidence_data <- list.files(path = "cases_by_date", full.names = TRUE) %>% 
   last %>% 
-  read_csv(col_types = cols(result_date = col_character(),
+  read_csv(col_types = cols(collection_date = col_character(),
                             etl_timestamp = col_skip(),
                             negative = col_integer(),
                             positive = col_integer())) %>% 
-  filter(!is.na(positive) & (date(result_date) >= date("2020-03-16"))) %>%
-  mutate(dates = date(result_date)) %>%
+  filter(!is.na(positive) & (date(collection_date) >= date("2020-03-16"))) %>%
+  mutate(dates = date(collection_date)) %>%
   arrange(dates) %>%
   mutate(positivity_rate = positive / (positive + negative)) %>%
   select(dates, positive, negative, positivity_rate) %>%
