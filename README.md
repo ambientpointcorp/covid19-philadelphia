@@ -54,10 +54,43 @@ To get started reading and analyzing the data:
   - Clone this repo
   - If you use R/RStudio, open a new project based on an existing
     folder, pointing to the local copy of the repo
-  - Read all the files within a folder as a historical dataset, for
-    example:
+  - Setup the following environment variable in \~/.Renviron, completing
+    /\<…\>/ based on the repo location in your local folder structure:
 
 <!-- end list -->
+
+    COVID19PHILLY_DIR='~/<...>/ambientpointcorp/covid19-philadelphia/'
+
+  - Set up cron jobs in your local machine with the cronR or
+    taskscheduleR package:
+    <https://cran.r-project.org/web/packages/cronR/vignettes/cronR.html>
+
+<!-- end list -->
+
+    library(cronR)
+    
+    # Daily cron job to fetch cases
+    cmd_cases <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                                 "philadelphia_covid19_cases_cron.R"))
+    cron_add(command = cmd_cases, frequency = 'daily', at='2PM', id = 'covid19_cases')
+    
+    # Daily cron job to fetch deaths
+    cmd_deaths <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                                       "philadelphia_covid19_deaths_cron.R"))
+    cron_add(command = cmd_deaths, frequency = 'daily', at='2PM', id = 'covid19_deaths')
+    
+    # Daily cron job to fetch hospitalizations
+    cmd_hosp <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                                       "philadelphia_covid19_hospitalizations_cron.R"))
+    cron_add(command = cmd_hosp, frequency = 'daily', at='2PM', id = 'covid19_hospitalizations')
+    
+    # Check scheduled jobs
+    cron_njobs()
+    cron_ls()
+
+-----
+
+### Read all the files within a folder as a historical dataset, for example:
 
 ``` r
 library(tidyverse)
@@ -109,8 +142,6 @@ cases_by_zipcode
     ##  9    19106 2020-06-01 17:20:02   589    55
     ## 10    19132 2020-06-01 17:20:02  1720   573
     ## # … with 13,723 more rows
-
------
 
 ### Analysis: COVID-19’s incidence and effective reproductive number in Philly
 
