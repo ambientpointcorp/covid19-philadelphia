@@ -28,7 +28,7 @@ These have been collected since 8/14/2020:
 * COVID Hospitalizations by Sex
 * COVID Hospitalizations by Zipcode
 
-These have been collected since 3/21/2020:
+These have been collected since 3/21/2021:
 
 * COVID Vaccinations Total
 * COVID Vaccinations by Age

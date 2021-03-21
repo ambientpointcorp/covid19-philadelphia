@@ -31,6 +31,14 @@ These have been collected since 8/14/2020:
   - COVID Hospitalizations by Sex
   - COVID Hospitalizations by Zipcode
 
+These have been collected since 3/21/2021:
+
+  - COVID Vaccinations Total
+  - COVID Vaccinations by Age
+  - COVID Vaccinations by Race
+  - COVID Vaccinations by Sex
+  - COVID Vaccinations by Zipcode
+
 Starting on 9/29/2020, COVID Cases by Date are reported by test specimen
 collection date; prior to this date, these were reported by test result
 date.
@@ -83,6 +91,11 @@ To get started reading and analyzing the data:
     cmd_hosp <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
                                                        "philadelphia_covid19_hospitalizations_cron.R"))
     cron_add(command = cmd_hosp, frequency = 'daily', at='2PM', id = 'covid19_hospitalizations')
+    
+    # Daily cron job to fetch vaccinations
+    cmd_vaccs <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                                       "philadelphia_covid19_vaccinations_cron.R"))
+    cron_add(command = cmd_vaccs, frequency = 'daily', at='2PM', id = 'covid19_vaccinations')
     
     # Check scheduled jobs
     cron_njobs()
