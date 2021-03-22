@@ -4,7 +4,7 @@ output: github_document
 ---
 
 ### About this repo
-De-identified, aggregate datasets showing COVID-19 cases, hospitalizations and deaths by date, zip, or age/sex/race as made available by the City of Philadelphia through its Open Data Program.
+De-identified, aggregate datasets showing COVID-19 cases, hospitalizations, deaths and vaccinations by date, zip, or age/sex/race as made available by the City of Philadelphia through its Open Data Program.
 
 The data in this repository is a history of daily snapshots made available here: https://www.opendataphilly.org/showcase/philadelphia-covid-19-information
 
