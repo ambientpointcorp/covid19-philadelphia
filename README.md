@@ -85,25 +85,26 @@ To get started reading and analyzing the data:
 <!-- -->
 
     library(cronR)
+    library(stringr)
 
     # Daily cron job to fetch cases
-    cmd_cases <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
-                                                 "philadelphia_covid19_cases_cron.R"))
+    cmd_cases <- cron_rscript(rscript = str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                              "philadelphia_covid19_cases_cron.R"))
     cron_add(command = cmd_cases, frequency = 'daily', at='2PM', id = 'covid19_cases')
 
     # Daily cron job to fetch deaths
-    cmd_deaths <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
-                                                       "philadelphia_covid19_deaths_cron.R"))
+    cmd_deaths <- cron_rscript(rscript = str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                               "philadelphia_covid19_deaths_cron.R"))
     cron_add(command = cmd_deaths, frequency = 'daily', at='2PM', id = 'covid19_deaths')
 
     # Daily cron job to fetch hospitalizations
-    cmd_hosp <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
-                                                       "philadelphia_covid19_hospitalizations_cron.R"))
+    cmd_hosp <- cron_rscript(rscript = str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                      "philadelphia_covid19_hospitalizations_cron.R"))
     cron_add(command = cmd_hosp, frequency = 'daily', at='2PM', id = 'covid19_hospitalizations')
 
     # Daily cron job to fetch vaccinations
-    cmd_vaccs <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
-                                                       "philadelphia_covid19_vaccinations_cron.R"))
+    cmd_vaccs <- cron_rscript(rscript = str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                          "philadelphia_covid19_vaccinations_cron.R"))
     cron_add(command = cmd_vaccs, frequency = 'daily', at='2PM', id = 'covid19_vaccinations')
 
     # Check scheduled jobs
@@ -129,7 +130,7 @@ cases_by_date <- build_historical_dataset("cases_by_date")
 cases_by_date
 ```
 
-    ## # A tibble: 152,992 x 5
+    ## # A tibble: 152,992 × 5
     ##    result_date etl_timestamp       positive negative collection_date
     ##    <date>      <dttm>                 <dbl>    <dbl> <date>         
     ##  1 2020-03-27  2020-06-04 17:20:02      222      769 NA             
@@ -150,7 +151,7 @@ cases_by_zipcode <- build_historical_dataset("cases_by_zipcode")
 cases_by_zipcode
 ```
 
-    ## # A tibble: 30,268 x 4
+    ## # A tibble: 30,268 × 4
     ##    zip_code etl_timestamp         NEG   POS
     ##       <dbl> <dttm>              <dbl> <dbl>
     ##  1    19122 2020-06-01 17:20:02  1018   245

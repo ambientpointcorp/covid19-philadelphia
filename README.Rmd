@@ -61,25 +61,26 @@ COVID19PHILLY_DIR='~/<...>/ambientpointcorp/covid19-philadelphia/'
 * Set up cron jobs in your local machine with the cronR or taskscheduleR package: https://cran.r-project.org/web/packages/cronR/vignettes/cronR.html
 ```
 library(cronR)
+library(stringr)
 
 # Daily cron job to fetch cases
-cmd_cases <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
-                                             "philadelphia_covid19_cases_cron.R"))
+cmd_cases <- cron_rscript(rscript = str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                          "philadelphia_covid19_cases_cron.R"))
 cron_add(command = cmd_cases, frequency = 'daily', at='2PM', id = 'covid19_cases')
 
 # Daily cron job to fetch deaths
-cmd_deaths <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
-                                                   "philadelphia_covid19_deaths_cron.R"))
+cmd_deaths <- cron_rscript(rscript = str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                           "philadelphia_covid19_deaths_cron.R"))
 cron_add(command = cmd_deaths, frequency = 'daily', at='2PM', id = 'covid19_deaths')
 
 # Daily cron job to fetch hospitalizations
-cmd_hosp <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
-                                                   "philadelphia_covid19_hospitalizations_cron.R"))
+cmd_hosp <- cron_rscript(rscript = str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                  "philadelphia_covid19_hospitalizations_cron.R"))
 cron_add(command = cmd_hosp, frequency = 'daily', at='2PM', id = 'covid19_hospitalizations')
 
 # Daily cron job to fetch vaccinations
-cmd_vaccs <- cron_rscript(rscript = stringr::str_c(Sys.getenv("COVID19PHILLY_DIR"),
-                                                   "philadelphia_covid19_vaccinations_cron.R"))
+cmd_vaccs <- cron_rscript(rscript = str_c(Sys.getenv("COVID19PHILLY_DIR"),
+                                      "philadelphia_covid19_vaccinations_cron.R"))
 cron_add(command = cmd_vaccs, frequency = 'daily', at='2PM', id = 'covid19_vaccinations')
 
 # Check scheduled jobs
