@@ -130,7 +130,7 @@ cases_by_date <- build_historical_dataset("cases_by_date")
 cases_by_date
 ```
 
-    ## # A tibble: 215,945 × 5
+    ## # A tibble: 216,734 × 5
     ##    result_date etl_timestamp       positive negative collection_date
     ##    <date>      <dttm>                 <dbl>    <dbl> <date>         
     ##  1 2020-03-27  2020-06-04 17:20:02      222      769 NA             
@@ -143,7 +143,7 @@ cases_by_date
     ##  8 2020-05-01  2020-06-04 17:20:02      414     1104 NA             
     ##  9 2020-05-20  2020-06-04 17:20:02      193     1697 NA             
     ## 10 2020-04-24  2020-06-04 17:20:02      490     1147 NA             
-    ## # … with 215,935 more rows
+    ## # … with 216,724 more rows
 
 ``` r
 # Cases by zip code and reporting date
@@ -151,7 +151,7 @@ cases_by_zipcode <- build_historical_dataset("cases_by_zipcode")
 cases_by_zipcode
 ```
 
-    ## # A tibble: 37,442 × 4
+    ## # A tibble: 37,527 × 4
     ##    zip_code etl_timestamp         NEG   POS
     ##       <dbl> <dttm>              <dbl> <dbl>
     ##  1    19122 2020-06-01 17:20:02  1018   245
@@ -164,7 +164,7 @@ cases_by_zipcode
     ##  8    19125 2020-06-01 17:20:02  1117   204
     ##  9    19106 2020-06-01 17:20:02   589    55
     ## 10    19132 2020-06-01 17:20:02  1720   573
-    ## # … with 37,432 more rows
+    ## # … with 37,517 more rows
 
 ### Analysis: COVID-19’s incidence and effective reproductive number in Philly
 
