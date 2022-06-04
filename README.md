@@ -72,7 +72,7 @@ To get started reading and analyzing the data:
 -   If you use R/RStudio, open a new project based on an existing
     folder, pointing to the local copy of the repo
 -   Setup the following environment variable in \~/.Renviron, completing
-    /\<…>/ based on the repo location in your local folder structure:
+    /\<…\>/ based on the repo location in your local folder structure:
 
 <!-- -->
 
