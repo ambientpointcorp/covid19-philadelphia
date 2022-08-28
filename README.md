@@ -18,9 +18,9 @@ The following datasets have been collected since 6/4/2020:
 -   COVID Cases by Date
 -   COVID Cases by Sex
 -   COVID Cases by Zipcode
--   COVID Deaths by Age
 -   COVID Deaths by Date
--   COVID Deaths by Sex
+-   COVID Deaths by Sex/Age
+-   COVID Deaths by Zipcode
 
 These have been collected since 8/14/2020:
 
