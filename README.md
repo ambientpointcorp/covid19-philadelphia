@@ -14,31 +14,31 @@ available here:
 
 The following datasets have been collected since 6/4/2020:
 
--   COVID Cases by Age
--   COVID Cases by Date
--   COVID Cases by Sex
--   COVID Cases by Zipcode
--   COVID Deaths by Date
--   COVID Deaths by Sex/Age
--   COVID Deaths by Zipcode
+- COVID Cases by Age
+- COVID Cases by Date
+- COVID Cases by Sex
+- COVID Cases by Zipcode
+- COVID Deaths by Date
+- COVID Deaths by Sex/Age
+- COVID Deaths by Zipcode
 
 These have been collected since 8/14/2020:
 
--   COVID Cases by Race
--   COVID Deaths by Race
--   COVID Hospitalizations by Age
--   COVID Hospitalizations by Date
--   COVID Hospitalizations by Race
--   COVID Hospitalizations by Sex
--   COVID Hospitalizations by Zipcode
+- COVID Cases by Race
+- COVID Deaths by Race
+- COVID Hospitalizations by Age
+- COVID Hospitalizations by Date
+- COVID Hospitalizations by Race
+- COVID Hospitalizations by Sex
+- COVID Hospitalizations by Zipcode
 
 These have been collected since 3/21/2021:
 
--   COVID Vaccinations Total
--   COVID Vaccinations by Age
--   COVID Vaccinations by Race
--   COVID Vaccinations by Sex
--   COVID Vaccinations by Zipcode
+- COVID Vaccinations Total
+- COVID Vaccinations by Age
+- COVID Vaccinations by Race
+- COVID Vaccinations by Sex
+- COVID Vaccinations by Zipcode
 
 We are working to backfill all the datasets with the entire history
 prior to the dates above and make them available here for use by the
@@ -46,15 +46,15 @@ open data community.
 
 Data reporting changes:
 
--   Starting on September 29, 2020, COVID Cases by Date are reported by
-    test specimen collection date; prior to this date, these were
-    reported by test result date. This repository keeps the entire
-    history with test result date showing null and test specimen
-    collection date populated after this change.
--   Beginning May 3, 2021, the Health Department is reporting testing
-    data twice weekly around 1:30 p.m. every Monday and Thursday. This
-    repository will continue to run daily updates with the latest
-    information posted by 2:00 p.m.
+- Starting on September 29, 2020, COVID Cases by Date are reported by
+  test specimen collection date; prior to this date, these were reported
+  by test result date. This repository keeps the entire history with
+  test result date showing null and test specimen collection date
+  populated after this change.
+- Beginning May 3, 2021, the Health Department is reporting testing data
+  twice weekly around 1:30 p.m. every Monday and Thursday. This
+  repository will continue to run daily updates with the latest
+  information posted by 2:00 p.m.
 
 Questions about these datasets? Visit the OpenDataPhilly Discussion
 Group: <https://groups.google.com/forum/#!forum/opendataphilly>
@@ -68,19 +68,19 @@ For terms of use:
 
 To get started reading and analyzing the data:
 
--   Clone this repo
--   If you use R/RStudio, open a new project based on an existing
-    folder, pointing to the local copy of the repo
--   Setup the following environment variable in \~/.Renviron, completing
-    /\<…\>/ based on the repo location in your local folder structure:
+- Clone this repo
+- If you use R/RStudio, open a new project based on an existing folder,
+  pointing to the local copy of the repo
+- Setup the following environment variable in \~/.Renviron, completing
+  /\<…\>/ based on the repo location in your local folder structure:
 
 <!-- -->
 
     COVID19PHILLY_DIR='~/<...>/ambientpointcorp/covid19-philadelphia/'
 
--   Set up cron jobs in your local machine with the cronR or
-    taskscheduleR package:
-    <https://cran.r-project.org/web/packages/cronR/vignettes/cronR.html>
+- Set up cron jobs in your local machine with the cronR or taskscheduleR
+  package:
+  <https://cran.r-project.org/web/packages/cronR/vignettes/cronR.html>
 
 <!-- -->
 
@@ -130,7 +130,7 @@ cases_by_date <- build_historical_dataset("cases_by_date")
 cases_by_date
 ```
 
-    ## # A tibble: 269,489 × 5
+    ## # A tibble: 271,687 × 5
     ##    result_date etl_timestamp       positive negative collection_date
     ##    <date>      <dttm>                 <dbl>    <dbl> <date>         
     ##  1 2020-03-27  2020-06-04 17:20:02      222      769 NA             
@@ -143,7 +143,7 @@ cases_by_date
     ##  8 2020-05-01  2020-06-04 17:20:02      414     1104 NA             
     ##  9 2020-05-20  2020-06-04 17:20:02      193     1697 NA             
     ## 10 2020-04-24  2020-06-04 17:20:02      490     1147 NA             
-    ## # … with 269,479 more rows
+    ## # … with 271,677 more rows
 
 ``` r
 # Cases by zip code and reporting date
@@ -151,7 +151,7 @@ cases_by_zipcode <- build_historical_dataset("cases_by_zipcode")
 cases_by_zipcode
 ```
 
-    ## # A tibble: 42,510 × 4
+    ## # A tibble: 42,686 × 4
     ##    zip_code etl_timestamp         NEG   POS
     ##       <dbl> <dttm>              <dbl> <dbl>
     ##  1    19122 2020-06-01 17:20:02  1018   245
@@ -164,7 +164,7 @@ cases_by_zipcode
     ##  8    19125 2020-06-01 17:20:02  1117   204
     ##  9    19106 2020-06-01 17:20:02   589    55
     ## 10    19132 2020-06-01 17:20:02  1720   573
-    ## # … with 42,500 more rows
+    ## # … with 42,676 more rows
 
 ### Analysis: COVID-19’s incidence and effective reproductive number in Philly
 
