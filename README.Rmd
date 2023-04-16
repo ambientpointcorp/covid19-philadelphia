@@ -36,8 +36,6 @@ These have been collected since 3/21/2021:
 * COVID Vaccinations by Sex
 * COVID Vaccinations by Zipcode
 
-We are working to backfill all the datasets with the entire history prior to the dates above and make them available here for use by the open data community.
-
 Data reporting changes:
 
 * Starting on September 29, 2020, COVID Cases by Date are reported by test specimen collection date; prior to this date, these were reported by test result date. This repository keeps the entire history with test result date showing null and test specimen collection date populated after this change.
@@ -46,6 +44,8 @@ Data reporting changes:
 Questions about these datasets? Visit the OpenDataPhilly Discussion Group: https://groups.google.com/forum/#!forum/opendataphilly
 
 For terms of use: https://www.opendataphilly.org/organization/about/city-of-philadelphia
+
+#### No more updates will be published after 6/4/2023. Users are encouraged to clone the repo and set up daily cron jobs to collect data on their own beyond this date.
 
 ---------
 

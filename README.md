@@ -40,10 +40,6 @@ These have been collected since 3/21/2021:
 - COVID Vaccinations by Sex
 - COVID Vaccinations by Zipcode
 
-We are working to backfill all the datasets with the entire history
-prior to the dates above and make them available here for use by the
-open data community.
-
 Data reporting changes:
 
 - Starting on September 29, 2020, COVID Cases by Date are reported by
@@ -61,6 +57,8 @@ Group: <https://groups.google.com/forum/#!forum/opendataphilly>
 
 For terms of use:
 <https://www.opendataphilly.org/organization/about/city-of-philadelphia>
+
+#### No more updates will be published after 6/4/2023. Users are encouraged to clone the repo and set up daily cron jobs to collect data on their own beyond this date.
 
 ------------------------------------------------------------------------
 
@@ -130,7 +128,7 @@ cases_by_date <- build_historical_dataset("cases_by_date")
 cases_by_date
 ```
 
-    ## # A tibble: 272,789 × 5
+    ## # A tibble: 276,161 × 5
     ##    result_date etl_timestamp       positive negative collection_date
     ##    <date>      <dttm>                 <dbl>    <dbl> <date>         
     ##  1 2020-03-27  2020-06-04 17:20:02      222      769 NA             
@@ -143,7 +141,7 @@ cases_by_date
     ##  8 2020-05-01  2020-06-04 17:20:02      414     1104 NA             
     ##  9 2020-05-20  2020-06-04 17:20:02      193     1697 NA             
     ## 10 2020-04-24  2020-06-04 17:20:02      490     1147 NA             
-    ## # … with 272,779 more rows
+    ## # … with 276,151 more rows
 
 ``` r
 # Cases by zip code and reporting date
@@ -151,7 +149,7 @@ cases_by_zipcode <- build_historical_dataset("cases_by_zipcode")
 cases_by_zipcode
 ```
 
-    ## # A tibble: 42,774 × 4
+    ## # A tibble: 43,038 × 4
     ##    zip_code etl_timestamp         NEG   POS
     ##       <dbl> <dttm>              <dbl> <dbl>
     ##  1    19122 2020-06-01 17:20:02  1018   245
@@ -164,7 +162,7 @@ cases_by_zipcode
     ##  8    19125 2020-06-01 17:20:02  1117   204
     ##  9    19106 2020-06-01 17:20:02   589    55
     ## 10    19132 2020-06-01 17:20:02  1720   573
-    ## # … with 42,764 more rows
+    ## # … with 43,028 more rows
 
 ### Analysis: COVID-19’s incidence and effective reproductive number in Philly
 
